@@ -1,8 +1,7 @@
 package br.com.unicuritiba.ProjetoA3.Models;
 
 public class MensagemDTO {
-	
-	 	private String destinatario;
+	    private String destinatario;
 	    private String mensagem;
 
 	    // Getters e setters
@@ -11,5 +10,4 @@ public class MensagemDTO {
 
 	    public String getMensagem() { return mensagem; }
 	    public void setMensagem(String mensagem) { this.mensagem = mensagem; }
-
-}
+	}

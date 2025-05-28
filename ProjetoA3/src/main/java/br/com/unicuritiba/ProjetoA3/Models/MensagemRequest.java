@@ -1,7 +1,7 @@
 package br.com.unicuritiba.ProjetoA3.Models;
 
 public class MensagemRequest {
-	private String number;
+    private String number;
     private String body;
     private String userId;
     private String queueId;
