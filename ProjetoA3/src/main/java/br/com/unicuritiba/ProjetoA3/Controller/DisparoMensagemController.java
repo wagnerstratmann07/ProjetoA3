@@ -8,23 +8,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import br.com.unicuritiba.ProjetoA3.Services.ApiClientService;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
 import br.com.unicuritiba.ProjetoA3.Models.MensagemDTO;
 import br.com.unicuritiba.ProjetoA3.Models.MensagemRequest;
 
 
 
-
-@Controller
+@RestController
 public class DisparoMensagemController {
 	
-	@Autowired
-	private ApiClientService apiClientService;
-	
-	@GetMapping("/disparomsg")
-	public String exibirFormulario(Model model) {
-		model.addAttribute("mensagemDTO", new MensagemDTO());
-		return "formulario";
-	}
 
 	@PostMapping("/disparomsg2")
 	  public String enviarMensagem(@ModelAttribute MensagemDTO mensagemDTO, Model model) {
