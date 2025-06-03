@@ -4,49 +4,42 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import br.com.unicuritiba.ProjetoA3.Models.User;
 import br.com.unicuritiba.ProjetoA3.Services.UserService;
 
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
 
-	@RestController
-	public class UserController {
+    @Autowired
+    private UserService service;
 
-		@Autowired
-		UserService service;
-		
-		@GetMapping("/users")
-		public ResponseEntity<List<User>> getUsers(){
-			return ResponseEntity.ok(service.getAllUser());	
-		}
+    @GetMapping
+    public ResponseEntity<List<User>> getUsers() {
+        return ResponseEntity.ok(service.getAllUser());
+    }
 
-		@GetMapping("/users/{id}")
-		public ResponseEntity<User> getUser(@PathVariable long id){
-			return ResponseEntity.ok(service.getUserById(id));	
-		}
-		
-		@PostMapping("/users")
-		public ResponseEntity<User> saveUser(
-				@RequestBody User user){
-			return ResponseEntity.ok(service.saveUser(user));
-		}
-		
-		@DeleteMapping("/users/{id}")
-		public void removeUser(@PathVariable long id) {
-			 service.removeUser(id);
-		}
-		
-		@PutMapping("/users/{id}")
-		public ResponseEntity<User> updateUser(@PathVariable long id,
-				@RequestBody User user) {
-			return ResponseEntity.ok(service.updateUser(id, user));
-		}
-	}
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUser(@PathVariable long id) {
+        return service.getUserById(id)
+                .map(user -> ResponseEntity.ok(user))
+                .orElse(ResponseEntity.notFound().build());
+    }
 
+    @PostMapping
+    public ResponseEntity<User> saveUser(@RequestBody User user) {
+        return ResponseEntity.ok(service.saveUser(user));
+    }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> removeUser(@PathVariable long id) {
+        service.removeUser(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User user) {
+        return ResponseEntity.ok(service.updateUser(id, user));
+    }
+}
