@@ -1,5 +1,7 @@
 package br.com.unicuritiba.ProjetoA3.Repository;
 
-public interface UserRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import br.com.unicuritiba.ProjetoA3.Models.User;
 
+	public interface UserRepository extends JpaRepository<User, Long> {
 }
