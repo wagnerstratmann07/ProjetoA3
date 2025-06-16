@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Usuário</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #1a1a1a;
+    }
+    .menu {
+      background-color: #1a1a1a;
+      color: #f2f2f2;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .menu h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .menu nav {
+      margin-top: 1.5rem;
+    }
+    .menu a {
+      color: #f2f2f2;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    .menu a:hover {
+      background-color: #333333;
+    }
+    .container {
+      max-width: 500px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .checkbox-group {
+      margin: 15px 0;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .checkbox-item input {
+      width: auto;
+      margin-right: 10px;
+      margin-bottom: 0;
+    }
+    button {
+      padding: 12px 24px;
+      background-color: #1a1a1a;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      width: 100%;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #333333;
+    }
+    .back-link {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    .back-link a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #f0f0f0;
+      color: #1a1a1a;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .back-link a:hover {
+      background-color: #e0e0e0;
+      text-decoration: none;
+    }
+    .message {
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      display: none;
+    }
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+  </style>
+</head>
+<body>
+  <header class="menu">
+    <h1>Sistema de Alertas Bancários</h1>
+    <nav>
+      <a href="menu.html">Início</a>
+      <a href="cadastro.html">Cadastro</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Cadastro para Alertas</h2>
+    
+    <div id="successMessage" class="message success">
+      Cadastro realizado com sucesso! Você receberá nossos alertas.
+    </div>
+    
+    <div id="errorMessage" class="message error">
+      Por favor, preencha todos os campos obrigatórios e selecione pelo menos um tipo de alerta.
+    </div>
+
+    <form id="cadastroForm">
+      <label for="nome">Nome Completo*:</label>
+      <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
+
+      <label for="telefone">Telefone*:</label>
+      <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+
+      <label for="idade">Idade*:</label>
+      <input type="number" id="idade" name="idade" min="18" required 
+      placeholder="Digite sua idade" oninput="validarIdade(this)">
+
+      <label>Tipo de Alertas*:</label>
+      <div class="checkbox-group">
+        <div class="checkbox-item">
+          <input type="checkbox" id="pix" name="alertas" value="pix">
+          <label for="pix">Fraudes de PIX</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="acesso" name="alertas" value="acesso">
+          <label for="acesso">Acessos não autorizados</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="movimentacao" name="alertas" value="movimentacao">
+          <label for="movimentacao">Movimentações suspeitas</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="phishing" name="alertas" value="phishing">
+          <label for="phishing">Tentativas de phishing</label>
+        </div>
+      </div>
+
+      <button type="button" onclick="validarFormulario()">Cadastrar</button>
+    </form>
+
+    <div class="back-link">
+      <a href="menu.html">Voltar para a página inicial</a>
+    </div>
+  </div>
+
+  <script>
+    function validarFormulario() {
+      const nome = document.getElementById('nome').value.trim();
+      const telefone = document.getElementById('telefone').value.trim();
+      const idade = document.getElementById('idade').value;
+      const checkboxes = document.querySelectorAll('input[name="alertas"]:checked');
+      
+      const successMessage = document.getElementById('successMessage');
+      const errorMessage = document.getElementById('errorMessage');
+      
+      
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
+      
+      
+      if(nome === '' || telefone === '' || idade === '' || checkboxes.length === 0) {
+        errorMessage.style.display = 'block';
+        window.scrollTo(0, 0);
+        return false;
+      }
+      
+      
+      successMessage.style.display = 'block';
+      window.scrollTo(0, 0);
+      
+      
+      document.getElementById('cadastroForm').reset();
+      
+      return false;
+    }
+  </script>
+</body>
+</html>

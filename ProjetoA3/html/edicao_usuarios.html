@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edição de Usuário - Sistema de Alertas Bancários</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #1a1a1a;
+    }
+    .menu {
+      background-color: #1a1a1a;
+      color: #f2f2f2;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .menu h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .menu nav {
+      margin-top: 1.5rem;
+    }
+    .menu a {
+      color: #f2f2f2;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    .menu a:hover {
+      background-color: #333333;
+    }
+    .container {
+      max-width: 500px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 0.5rem;
+    }
+    form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    form input, form select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .checkbox-group {
+      margin: 15px 0;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .checkbox-item input {
+      width: auto;
+      margin-right: 10px;
+      margin-bottom: 0;
+    }
+    .button-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .button-group button {
+      flex: 1;
+      padding: 12px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .primary-button {
+      background-color: #1a1a1a;
+      color: white;
+    }
+    .primary-button:hover {
+      background-color: #333333;
+    }
+    .secondary-button {
+      background-color: #f0f0f0;
+      color: #1a1a1a;
+    }
+    .secondary-button:hover {
+      background-color: #e0e0e0;
+    }
+    .back-link {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    .back-link a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #f0f0f0;
+      color: #1a1a1a;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .back-link a:hover {
+      background-color: #e0e0e0;
+      text-decoration: none;
+    }
+    .message {
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      display: none;
+    }
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+        margin: 1rem;
+      }
+      .menu a {
+        display: inline-block;
+        margin: 5px;
+      }
+      .button-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="menu">
+    <h1>Sistema de Alertas Bancários</h1>
+    <nav>
+      <a href="menu.html">Início</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="usuarios.html">Usuários</a>
+      <a href="mensagens.html">Mensagens</a>
+      <a href="configuracoes.html">Configurações</a>
+      <a href="login.html">Sair</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Editar Usuário</h2>
+    
+    <div id="successMessage" class="message success">
+      Usuário atualizado com sucesso!
+    </div>
+    
+    <div id="errorMessage" class="message error">
+      Por favor, preencha todos os campos obrigatórios.
+    </div>
+
+    <form id="editUserForm">
+      <input type="hidden" id="userId" value="2">
+      
+      <label for="nome">Nome Completo*:</label>
+      <input type="text" id="nome" name="nome" placeholder="Digite o nome completo" value="Maria Santos">
+
+      <label for="telefone">Telefone*:</label>
+      <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" value="(21) 98765-4321">
+
+      <label for="dataNascimento">Data de Nascimento*:</label>
+      <input type="date" id="dataNascimento" name="dataNascimento" value="1985-05-15">
+
+      <label>Tipo de Alertas*:</label>
+      <div class="checkbox-group">
+        <div class="checkbox-item">
+          <input type="checkbox" id="pix" name="alertas" value="pix" checked>
+          <label for="pix">Fraudes de PIX</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="acesso" name="alertas" value="acesso" checked>
+          <label for="acesso">Acessos não autorizados</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="movimentacao" name="alertas" value="movimentacao">
+          <label for="movimentacao">Movimentações suspeitas</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="phishing" name="alertas" value="phishing" checked>
+          <label for="phishing">Tentativas de phishing</label>
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button type="button" class="primary-button" onclick="salvarUsuario()">Salvar Alterações</button>
+        <button type="button" class="secondary-button" onclick="cancelarEdicao()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>

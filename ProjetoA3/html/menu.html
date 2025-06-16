@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informações do Projeto</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #1a1a1a;
+    }
+    .menu {
+      background-color: #1a1a1a;
+      color: #f2f2f2;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .menu h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .menu nav {
+      margin-top: 1.5rem;
+    }
+    .menu a {
+      color: #f2f2f2;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    .menu a:hover {
+      background-color: #333333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 1rem;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .alert-info {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-top: 2rem;
+    }
+    .alert-info h2 {
+      color: #d32f2f;
+      border-bottom: 2px solid #d32f2f;
+      padding-bottom: 0.5rem;
+    }
+    .alert-info h3 {
+      color: #333;
+      margin-top: 1.5rem;
+    }
+    .alert-info ul {
+      padding-left: 1.5rem;
+    }
+    .alert-info li {
+      margin-bottom: 0.5rem;
+    }
+    .warning {
+      background-color: #fff8e1;
+      padding: 1rem;
+      border-left: 4px solid #ffc107;
+      margin: 1.5rem 0;
+    }
+    .protection-tips {
+      background-color: #e8f5e9;
+      padding: 1rem;
+      border-left: 4px solid #4caf50;
+      margin: 1.5rem 0;
+    }
+    .legal-info {
+      background-color: #e3f2fd;
+      padding: 1rem;
+      border-left: 4px solid #2196f3;
+      margin: 1.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="menu">
+    <h1>Sistema de Alertas Bancários</h1>
+    <nav>
+      <a href="menu.html">Início</a>
+      <a href="cadastro.html">Cadastro</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Bem-vindo ao Sistema</h2>
+    <p>Este projeto alerta os usuários sobre atividades bancárias suspeitas, incluindo:</p>
+    <ul>
+      <li>Fraudes de Pix</li>
+      <li>Acessos não autorizados</li>
+      <li>Movimentações suspeitas</li>
+    </ul>
+    <p><a href="cadastro.html" style="color: #0066cc; font-weight: bold;">Clique aqui para se cadastrar e receber alertas</a></p>
+
+    <div class="alert-info">
+      <h2>Fraude Pix: Como se proteger</h2>
+      <p>A fraude de Pix é um crime que tem crescido bastante nos últimos anos, desde que o sistema de pagamentos instantâneos foi lançado pelo Banco Central em 2020. Por ser rápido, prático e disponível 24 horas por dia, o Pix facilitou a vida de milhões de brasileiros, mas também acabou se tornando uma ferramenta atrativa para golpistas.</p>
+
+      <h3>Principais tipos de fraude</h3>
+      <ul>
+        <li><strong>Engenharia social:</strong> Golpista manipula emocionalmente a vítima para que ela mesma envie o dinheiro via Pix</li>
+        <li><strong>Phishing:</strong> Links falsos que levam a páginas que imitam sites bancários para roubar dados</li>
+        <li><strong>Clonagem de WhatsApp:</strong> Criminoso se passa por conhecido pedindo transferência urgente</li>
+        <li><strong>QR Codes adulterados:</strong> Códigos manipulados para desviar pagamentos para contas de golpistas</li>
+        <li><strong>Sequestro-relâmpago:</strong> Vítima é forçada a fazer transferências sob ameaça física</li>
+      </ul>
+
+      <div class="warning">
+        <h3>Como se proteger</h3>
+        <ul>
+          <li>Desconfie de pedidos urgentes de dinheiro</li>
+          <li>Verifique cuidadosamente o nome do destinatário antes de confirmar um Pix</li>
+          <li>Não clique em links suspeitos recebidos por e-mail, SMS ou WhatsApp</li>
+          <li>Mantenha senhas fortes em aplicativos bancários</li>
+          <li>Configure limites diários para transferências</li>
+          <li>Nunca compartilhe seus dados bancários ou códigos de segurança</li>
+        </ul>
+      </div>
+
+      <h3>O que fazer se for vítima</h3>
+      <ol>
+        <li>Comunique seu banco imediatamente</li>
+        <li>Registre um boletim de ocorrência na delegacia mais próxima</li>
+        <li>Acione o Mecanismo Especial de Devolução (MED)</li>
+        <li>Altere todas as suas senhas bancárias</li>
+        <li>Denuncie no <a href="https://www.gov.br/mj/pt-br/assuntos/denuncias" target="_blank" style="color: #0066cc;">canal oficial do Ministério da Justiça</a></li>
+      </ol>
+    </div>
+
+    <div class="alert-info">
+      <h2>Acessos não autorizados: Riscos e prevenção</h2>
+      <p>Acessos não autorizados são situações em que uma pessoa, sem permissão, consegue entrar em um sistema, conta ou dispositivo com o objetivo de obter, alterar ou roubar informações. Esse tipo de invasão é uma das principais ameaças à segurança digital e pode causar sérios prejuízos, tanto para pessoas físicas quanto para empresas.</p>
+
+      <h3>Como ocorrem os acessos não autorizados</h3>
+      <ul>
+        <li><strong>Phishing:</strong> Mensagens falsas que induzem a vítima a entregar informações pessoais</li>
+        <li><strong>Vazamentos de dados:</strong> Uso de credenciais vazadas em outros serviços</li>
+        <li><strong>Senhas fracas:</strong> Combinações fáceis de adivinhar ou que usam dados pessoais</li>
+        <li><strong>Malwares:</strong> Programas maliciosos que roubam dados do dispositivo</li>
+        <li><strong>Redes Wi-Fi inseguras:</strong> Conexões públicas sem criptografia adequada</li>
+      </ul>
+
+      <h3>Principais alvos</h3>
+      <ul>
+        <li>Contas bancárias e aplicativos financeiros</li>
+        <li>E-mails pessoais e corporativos</li>
+        <li>Redes sociais</li>
+        <li>Sistemas empresariais</li>
+        <li>Dispositivos pessoais (celulares, computadores)</li>
+      </ul>
+
+      <div class="protection-tips">
+        <h3>Medidas de proteção</h3>
+        <ul>
+          <li>Use senhas fortes e diferentes para cada serviço</li>
+          <li>Ative a autenticação em dois fatores (2FA) em todas as contas</li>
+          <li>Mantenha sistemas operacionais e aplicativos sempre atualizados</li>
+          <li>Evite usar redes Wi-Fi públicas para acessar contas sensíveis</li>
+          <li>Desconfie de mensagens que pedem dados pessoais ou financeiros</li>
+          <li>Use um gerenciador de senhas confiável</li>
+          <li>Instale e mantenha atualizado um bom antivírus</li>
+        </ul>
+      </div>
+
+      <h3>O que fazer em caso de invasão</h3>
+      <ol>
+        <li>Troque imediatamente todas as suas senhas</li>
+        <li>Desconecte todos os dispositivos das suas contas</li>
+        <li>Verifique movimentações bancárias e atividades suspeitas</li>
+        <li>Comunique o ocorrido ao suporte dos serviços afetados</li>
+        <li>Registre um boletim de ocorrência em caso de crimes financeiros</li>
+        <li>Monitore suas contas regularmente por atividades incomuns</li>
+      </ol>
+    </div>
+
+    <div class="alert-info">
+      <h2>Movimentações Suspeitas: Identificação e Ação</h2>
+      <p>Movimentações suspeitas são atividades financeiras fora do padrão habitual de uma pessoa ou empresa que podem indicar fraudes, golpes ou outros crimes, como lavagem de dinheiro. No ambiente digital atual, identificar esse tipo de movimentação se tornou uma das principais formas de prevenir prejuízos.</p>
+
+      <h3>Tipos comuns de movimentações suspeitas</h3>
+      <ul>
+        <li><strong>Transferências em horários incomuns:</strong> Como operações realizadas de madrugada</li>
+        <li><strong>Valores elevados:</strong> Para contas desconhecidas ou não relacionadas à sua atividade</li>
+        <li><strong>Operações frequentes:</strong> Múltiplas transferências para diferentes contas em curto período</li>
+        <li><strong>Depósitos suspeitos:</strong> De origem desconhecida ou não justificada</li>
+        <li><strong>Uso repentino de serviços:</strong> Que você normalmente não utiliza</li>
+      </ul>
+
+      <div class="legal-info">
+        <h3>Implicações legais</h3>
+        <ul>
+          <li>Para pessoas físicas: movimentações incompatíveis com a renda declarada podem gerar investigações</li>
+          <li>Para empresas: transações não justificadas podem levar a ações da Receita Federal</li>
+          <li>Operações podem ser associadas a crimes como lavagem de dinheiro ou fraude</li>
+        </ul>
+      </div>
+
+      <div class="protection-tips">
+        <h3>Como monitorar e se proteger</h3>
+        <ul>
+          <li>Ative notificações de todas as transações em suas contas</li>
+          <li>Revise regularmente seu extrato bancário</li>
+          <li>Mantenha um controle pessoal de suas movimentações</li>
+          <li>Configure alertas para operações acima de determinado valor</li>
+          <li>Conheça seus padrões habituais de movimentação financeira</li>
+        </ul>
+      </div>
+
+      <h3>O que fazer ao identificar movimentações suspeitas</h3>
+      <ol>
+        <li>Entre em contato imediatamente com seu banco ou instituição financeira</li>
+        <li>Solicite o bloqueio da conta ou cartão, se necessário</li>
+        <li>Registre um boletim de ocorrência em caso de fraude comprovada</li>
+        <li>Acione o MED (Mecanismo Especial de Devolução) quando aplicável</li>
+        <li>Altere suas credenciais de acesso (senhas, tokens, etc.)</li>
+        <li>Monitore sua conta nos dias seguintes para verificar novas atividades suspeitas</li>
+      </ol>
+
+      <p>Ficar atento a movimentações suspeitas é uma forma eficaz de agir preventivamente e garantir a segurança do seu dinheiro. A vigilância constante e o conhecimento sobre seus próprios hábitos financeiros são ferramentas fundamentais para evitar prejuízos.</p>
+    </div>
+  </div>
+</body>
+</html>
