@@ -5,7 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-
 @Entity
 public class User {
 	
@@ -18,9 +17,6 @@ public class User {
 	
 	public long getId() {
 		return id;
-	}
-	public void setId() {
-		this.id = id;
 	}
 	
 	public String getNome() {
